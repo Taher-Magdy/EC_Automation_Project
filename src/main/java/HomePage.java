@@ -10,19 +10,29 @@ public class HomePage extends BasePage {
     public HomePage(WebDriver driver) {
         super(driver);
     }
-    public WebElement register(){
+    /*public WebElement register(){
 
         return  driver.findElement(By.className("ico-register"));
-    }
+    }*/
     public WebElement login() {
         return driver.findElement(By.cssSelector("a[class=\"ico-login\"]"));
     }
+    public LoginPage ClickOnloginButton() {
+        driver.findElement(By.cssSelector("a[class=\"ico-login\"]")).click();
+        return new LoginPage(driver);
+    }
+
     public WebElement currency(){
         return driver.findElement(By.className("currency-selector"));
     }
     /*    public List<WebElement> sign(){
             return driver.findElement(By.xpath("(//div[@class='prices'])[1]"));
         }*/
+
+    public RegisterPage ClickOnRegister(){
+        driver.findElement(By.className("ico-register")).click();
+        return new RegisterPage(driver);
+    }
     public WebElement sign(){
         return driver.findElement(By.xpath("(//div[@class='prices'])[1]"));
     }

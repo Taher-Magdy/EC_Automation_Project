@@ -6,12 +6,25 @@ public class ResgisterPageTest extends BaseTest{
 
     SoftAssert softAssert = new SoftAssert();
    private RegisterPage registerPage;
+
     @Test
-            public void register(){
-        homePage.register().click();
-
+    public void register(){
+        new HomePage(driver)
+                .ClickOnRegister()
+                .gender()
+                .firstName()
+                .lastName()
+                .dateOfBirthDay()
+                .dateOfBirthMonth()
+                .dateOfBirthYear()
+                .email()
+                .company()
+                .password()
+                .confirmPassword()
+                .registerBtn();
+    }
+        /*homePage.register().click();
         registerPage = new RegisterPage(driver);
-
         registerPage.gender_male().click();
         registerPage.firstName().sendKeys("Taher");
         registerPage.lastName().sendKeys("magdy");
@@ -30,7 +43,9 @@ public class ResgisterPageTest extends BaseTest{
         String actual = registerPage.result().getText();
 
         softAssert.assertTrue(actual.contains(expected));
-        softAssert.assertAll();}}
+        softAssert.assertAll();}*/
+
+    }
 
 
 

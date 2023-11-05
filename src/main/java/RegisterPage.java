@@ -1,8 +1,10 @@
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 
 public class RegisterPage extends BasePage{
+    Select select;
     public RegisterPage(WebDriver driver) {
         super(driver);
     }
@@ -20,7 +22,59 @@ public class RegisterPage extends BasePage{
     private By result_ele =  By.className("result");
     private By continueBtn_ele =  By.className("button-1");
 
-    public WebElement gender_male(){
+    public RegisterPage gender(){
+        driver.findElement(gender_male_ele).click(); ;
+        return this;
+    }
+    public RegisterPage firstName(){
+        driver.findElement(firstName_ele).sendKeys("Taher");
+        return this;
+    }
+    public RegisterPage lastName(){
+        driver.findElement(lastName_ele).sendKeys("Magdy"); ;
+        return this;
+    }
+    public RegisterPage dateOfBirthDay(){
+        select = new Select(driver.findElement(dateOfBirthDay_ele));
+        select.selectByIndex(10);
+        return this;
+    }
+    public RegisterPage dateOfBirthMonth(){
+        select = new Select( driver.findElement(dateOfBirthMonth_ele));
+        select.selectByVisibleText("December");
+        return this;
+    }
+    public RegisterPage dateOfBirthYear(){
+        select = new Select(driver.findElement(dateOfBirthYear_ele));
+        select.selectByValue("1998");
+        return this;
+    }
+    public RegisterPage email(){
+        driver.findElement(email_ele).sendKeys("tahermagdy90@gmail.com");
+        return this;
+    }
+    public RegisterPage company(){
+        driver.findElement(company_ele).sendKeys("T_M") ;
+        return this;
+    }
+    public RegisterPage password(){
+        driver.findElement(password_ele).sendKeys("P@sswOrd");
+        return this;
+    }
+    public RegisterPage confirmPassword(){
+        driver.findElement(confirmPassword_ele).sendKeys("P@sswOrd") ;
+        return this;
+    }
+    public HomePage registerBtn(){
+        driver.findElement(registerBtn_ele).click(); ;
+        return new HomePage(driver);
+    }
+    public RegisterPage result(){
+        driver.findElement(result_ele);
+        return this;
+    }
+
+   /* public WebElement gender_male(){
         return driver.findElement(gender_male_ele) ;
     }
     public WebElement firstName(){
@@ -60,4 +114,4 @@ public class RegisterPage extends BasePage{
     public WebElement continueBtn(){
         return  driver.findElement(continueBtn_ele);
     }
-}
+*/}

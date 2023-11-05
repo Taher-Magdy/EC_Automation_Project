@@ -16,7 +16,6 @@ public class WishlistTest extends BaseTest{
         wishListPage.addWishListInPage().click();
         Thread.sleep(2000);
 
-
         softAssert.assertTrue(wishListPage.wishSuccessMsg().isDisplayed(), "Success Message");
 
         String actual = wishListPage.wishSuccessMsg().getCssValue("background-color");

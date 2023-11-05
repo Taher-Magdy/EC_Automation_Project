@@ -7,8 +7,14 @@ public class LoginPageTest extends BaseTest {
     private LoginPage loginPage;
 
     @Test
-    public void step1() throws InterruptedException {
-        homePage.login().click();
+    public void valid_login() throws InterruptedException {
+        new HomePage(driver)
+                .ClickOnloginButton()
+                .email()
+                .password()
+                .ClickOnlogin_btn();
+
+        /*homePage.login().click();
         loginPage = new LoginPage(driver);
         loginPage.email().sendKeys("tahermagdy90@gmail.com");
         loginPage.password().sendKeys("01286481826");
@@ -16,7 +22,7 @@ public class LoginPageTest extends BaseTest {
         //  this.password().sendKeys(new CharSequence[]{password});
         Thread.sleep(1000L);
 
-        loginPage.login_btn().click();
+        loginPage.login_btn().click();*/
 
 
     }
